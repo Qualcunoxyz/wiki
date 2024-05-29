@@ -1,4 +1,4 @@
-name: Docker
+name: Docker build & publish
 
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
@@ -7,7 +7,7 @@ name: Docker
 
 on:
   schedule:
-    - cron: '19 1 * * *'
+    - cron: '34 9 * * 0' # once a week, Sunday at 9:34
   push:
     branches: [ "main" ]
     # Publish semver tags as releases.
@@ -36,7 +36,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       # Install the cosign tool except on PR
       # https://github.com/sigstore/cosign-installer
